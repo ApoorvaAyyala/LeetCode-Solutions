@@ -1,0 +1,33 @@
+class Solution(object):
+    def isPalindrome(self, head):
+        """
+        :type head: ListNode
+        :rtype: bool
+        """
+        if head is None:
+            return True
+        mid = self.find_middle(head)
+        end_head = self.reverse_list(mid)
+        while head and end_head:
+            if head.val != end_head.val:
+                return False
+            head = head.next
+            end_head = end_head.next
+        return True
+
+    def find_middle(self, head):
+        slow = fast = head
+        while fast and fast.next:
+            slow = slow.next
+            fast = fast.next.next
+        return slow
+
+    def reverse_list(self, head):
+        curr = head
+        prev = None
+        while curr:
+            t = curr.next
+            curr.next = prev
+            prev = curr
+            curr = t
+        return prev
