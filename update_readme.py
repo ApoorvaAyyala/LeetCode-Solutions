@@ -1,6 +1,6 @@
 import requests
 
-USERNAME = "https://leetcode.com/u/GV2025003230/"
+USERNAME = "GV2025003230"
 
 def fetch_data():
     url = "https://leetcode-stats-api.herokuapp.com/" + USERNAME
